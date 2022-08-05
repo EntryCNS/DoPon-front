@@ -3,10 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import TabNavigation from "./navigations/Tab";
 import StackNavigation from "./navigations/Stack";
 const Navigator = () => {
+  const isLogin = true;
   return (
     <NavigationContainer>
-      {/* <StackNavigation /> */}
-      <TabNavigation />
+      {!isLogin ? <StackNavigation /> : <TabNavigation />}
     </NavigationContainer>
   );
 };
