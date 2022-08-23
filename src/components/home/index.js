@@ -1,0 +1,26 @@
+import React from "react";
+import MyWallet from "./myWallet";
+import History from "./history";
+import styled from "styled-components/native";
+
+const Container = styled.ScrollView`
+  flex: 1;
+  width: 100%;
+  /* padding-top: 80px; */
+  /* padding-left: 20px; */
+  padding: 80px 0 50px 20px;
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-color: #e5e5e5;
+`;
+
+const Home = () => {
+  return (
+    <Container>
+      <MyWallet />
+      <History />
+    </Container>
+  );
+};
+
+export default Home;
