@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import TabNavigation from "./navigations/Tab";
 import StackNavigation from "./navigations/Stack";
 
 const Navigator = () => {
-  const isLogin = true;
+  const [isLogined, setIsLogined] = useState(false);
   return (
     <NavigationContainer>
-      {!isLogin ? <StackNavigation /> : <TabNavigation />}
+      {!isLogined ? (
+        <StackNavigation setIsLogined={setIsLogined} />
+      ) : (
+        <TabNavigation />
+      )}
     </NavigationContainer>
   );
 };
