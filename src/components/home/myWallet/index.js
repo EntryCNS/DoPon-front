@@ -36,14 +36,14 @@ const card = [
     account: "1111-11-1234567",
     monney: "2,433,000",
     type: "저축통장",
-    color: "red",
+    color: "#FF4A4A",
   },
   {
     id: 2,
     account: "1111-11-1234567",
     monney: "2,433,000",
     type: "저축통장",
-    color: "blue",
+    color: "#54BAB9",
   },
   {
     id: 3,
@@ -53,11 +53,12 @@ const card = [
     color: "orange",
   },
 ];
-const MyWallet = () => {
+const MyWallet = ({ navigation }) => {
   const [selectedPage, setSelectedPage] = useState(0);
+  console.log(navigation);
   return (
     <Container>
-      <Text style={{ color: "#000", marginBottom: "5%", fontSize: "20px" }}>
+      <Text style={{ color: "#000", marginBottom: "5%", fontSize: 20 }}>
         내 지갑
       </Text>
       <PageSlider
@@ -72,7 +73,7 @@ const MyWallet = () => {
             <Card key={idx} color={item.color}>
               <Text>{item.type}</Text>
               <Text style={{ marginBottom: "5%" }}>{item.account}</Text>
-              <Text style={{ fontSize: "24px", textAlign: "center" }}>
+              <Text style={{ fontSize: 24, textAlign: "center" }}>
                 {item.monney}원
               </Text>
               <TouchableOpacity></TouchableOpacity>
@@ -80,6 +81,12 @@ const MyWallet = () => {
           );
         })}
       </PageSlider>
+      <AddButton
+        title="go to webView"
+        onPress={() => {
+          navigation.navigate("webView");
+        }}
+      />
     </Container>
   );
 };

@@ -14,10 +14,10 @@ const Container = styled.ScrollView`
   background-color: #e5e5e5;
 `;
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <Container>
-      <MyWallet />
+      <MyWallet navigation={navigation} />
       <History />
     </Container>
   );

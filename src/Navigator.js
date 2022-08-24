@@ -4,7 +4,7 @@ import TabNavigation from "./navigations/Tab";
 import StackNavigation from "./navigations/Stack";
 
 const Navigator = () => {
-  const isLogin = false;
+  const isLogin = true;
   return (
     <NavigationContainer>
       {!isLogin ? <StackNavigation /> : <TabNavigation />}
