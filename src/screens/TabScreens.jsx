@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import HomeCom from "../components/home";
+import AnalyticsCom from "../components/analytics";
 
 const Container = styled.View`
   flex: 1;
@@ -29,7 +30,7 @@ export const Home = () => {
 export const Analytics = () => {
   return (
     <Container>
-      <StyledText>분석</StyledText>
+      <AnalyticsCom />
     </Container>
   );
 };
