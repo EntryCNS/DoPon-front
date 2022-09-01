@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import PlanPage from "../components/plan/Plan";
+import PlusPlan from "../components/plan/PlusPlan";
 
 const Container = styled.View`
   flex: 1;
@@ -30,7 +31,7 @@ export const Analytics = () => {
 };
 
 export const Plan = () => {
-  return <PlanPage />;
+  return <PlusPlan />;
 };
 
 export const Menu = () => {
