@@ -2,6 +2,7 @@ import React from "react";
 import { Text, Button, View } from "react-native";
 
 const Auth = ({ navigation }) => {
+  console.log(navigation);
   return (
     <View>
       <Button

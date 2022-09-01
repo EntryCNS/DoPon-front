@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import PlanPage from "../components/plan/Plan";
 import PlusPlan from "../components/plan/PlusPlan";
+import HomeCom from "../components/home";
 
 const Container = styled.View`
   flex: 1;
@@ -14,11 +15,16 @@ const StyledText = styled.Text`
   color: #ffffff;
 `;
 
+const ScroolContainer = styled.ScrollView`
+  flex: 1;
+  background-color: #54b7f9;
+`;
+
 export const Home = () => {
   return (
-    <Container>
-      <StyledText>홈</StyledText>
-    </Container>
+    <ScroolContainer>
+      <HomeCom />
+    </ScroolContainer>
   );
 };
 
