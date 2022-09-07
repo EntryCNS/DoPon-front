@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home, Plan, Analytics, Menu } from "../screens/TabScreens";
-import { HomeStackScreen } from "./customStack";
+import { HomeStackScreen } from "./HomeStack";
 import {
   HomeIcon,
   AnalyticsIcon,
