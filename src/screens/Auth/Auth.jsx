@@ -27,12 +27,11 @@ const styles = StyleSheet.create({
   main_image: {
     width: 320,
     height: 239,
-    marginTop: 30,
     marginBottom: 42,
   },
   login_signup_button: {
     marginTop: 12,
-    marginBottom: 60,
+    marginBottom: 42,
   },
   login_signup_text_size: {
     fontSize: 20,
@@ -79,7 +78,7 @@ const Auth = ({ navigation }) => {
 
       <View style={styles.login_signup_button}>
         <TouchableOpacity activeOpacity={0.8} style={styles.signupButton} onPress={() => {
-            navigation.navigate("SignIn");}}>
+            navigation.navigate("SignUp");}}>
           <Text style={styles.login_signup_text_size}>회원가입</Text>
         </TouchableOpacity>
       </View>
