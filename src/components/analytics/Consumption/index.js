@@ -4,8 +4,11 @@ import styled from "styled-components/native";
 import { VictoryBar, VictoryChart, VictoryAxis } from "victory-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import DropDownPicker from "react-native-dropdown-picker";
-const Container = styled.View``;
 
+const Container = styled.View``;
+const DropDownContainer = styled.View`
+  z-index: 333;
+`;
 const ChartContainer = styled.View`
   display: flex;
   justify-content: center;
@@ -28,29 +31,10 @@ const data = [
   { month: "4월", amount: 16500 },
   { month: "5월", amount: 14250 },
   { month: "6월", amount: 1000 },
-  { month: "7월", amount: 13000 },
+  { month: "9월", amount: 13000 },
 ];
 
 const Consumption = () => {
-  // useEffect(() => {
-  //   findMonthData();
-  // }, [data]);
-
-  //data에 month 정보만 따로 모아주는 함수
-  // const findMonthData = () => {
-  //   const monthArray = [];
-  //   const amountArray = [];
-  //   data.forEach((d) => {
-  //     monthArray.push(d.month);
-  //     amountArray.push(d.amount);
-  //   });
-  //   setMonthData(monthArray);
-  //   setAmountData(amountArray);
-  // };
-
-  // const [monthData, setMonthData] = useState([]);
-  // const [amountData, setAmountData] = useState([]);
-
   useEffect(() => {
     makeItemData();
   }, [data]);
@@ -59,7 +43,7 @@ const Consumption = () => {
     data.forEach((data) => {
       const itemObject = {
         label: data.month,
-        value: `${data.month} ${data.amount}`,
+        value: { month: data.month, amount: data.amount },
       };
       itemData.push(itemObject);
     });
@@ -67,25 +51,28 @@ const Consumption = () => {
 
   const date = new Date();
 
-  const [value, setValue] = useState(date.getMonth() + 1);
+  const [selectedMonth, setSelectedMonth] = useState(date.getMonth() + 1);
   const itemData = [];
   const [item, setItem] = useState(itemData);
   const [openDropDown, setOpenDropDown] = useState(false);
 
   return (
     <Container>
-      <DropDownPicker
-        placeholder={`${value}월`}
-        open={openDropDown}
-        setOpen={setOpenDropDown}
-        value={value}
-        setValue={setValue}
-        items={item}
-        setItems={setItem}
-      />
+      <DropDownContainer>
+        <DropDownPicker
+          containerStyle={{ width: 130, border: "0" }}
+          width="155px"
+          placeholder={`${selectedMonth}월`}
+          open={openDropDown}
+          setOpen={setOpenDropDown}
+          value={selectedMonth}
+          setValue={setSelectedMonth}
+          items={item}
+        />
+      </DropDownContainer>
       <ChartContainer>
         <MonthConSimption>
-          {value.split(" ")[0]}의 소비금액은 {value.split(" ")[1]}원
+          {selectedMonth.month}월은 총 {selectedMonth.amount}원을소비했어요
         </MonthConSimption>
         <AntDesign name="caretdown" />
         <VictoryChart width={350} height={250}>
@@ -97,6 +84,15 @@ const Consumption = () => {
             }}
           />
           <VictoryBar
+            style={{
+              data: {
+                fill: ({ datum }) => {
+                  return datum.month === selectedMonth.month
+                    ? "#538EE5"
+                    : "#EFEFEF";
+                },
+              },
+            }}
             barWidth={30}
             cornerRadius={{ top: 8, bottom: 8 }}
             data={data}
