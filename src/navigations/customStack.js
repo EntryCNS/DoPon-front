@@ -1,17 +1,32 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../components/home";
+import Plan from "../components/plan/Plan";
+import PlusPlan from "../components/plan/PlusPlan";
 import WebView from "../components/common/webView/webView";
-const HomeStack = createStackNavigator();
+const Stack = createStackNavigator();
 
 export const HomeStackScreen = () => {
   return (
-    <HomeStack.Navigator
+    <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}
     >
-      <HomeStack.Screen name="main" component={Home} />
-      <HomeStack.Screen name="webView" component={WebView} />
-    </HomeStack.Navigator>
+      <Stack.Screen name="main" component={Home} />
+      <Stack.Screen name="webView" component={WebView} />
+    </Stack.Navigator>
+  );
+};
+
+export const PlanStackScreen = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="plan" component={Plan} />
+      <Stack.Screen name="plusPlan" component={PlusPlan} />
+    </Stack.Navigator>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View, ScrollView } from "react-native";
-import styled from "styled-components";
+import styled from "styled-components/native";
 
 const Title = styled.Text`
   padding-top: 80px;
@@ -43,7 +43,7 @@ const CardPeriod = styled.Text`
   color: #bcbcbc;
 `;
 
-const Plus = styled.View`
+const Plus = styled.Button`
   height: 64px;
   width: 303px;
   background: #538ee6;
@@ -76,7 +76,7 @@ const PlusText = styled.Text`
   color: #ffffff;
 `;
 
-const Plan = () => {
+const Plan = ({ navigation }) => {
   return (
     <Container>
       <Title>계획</Title>
@@ -112,7 +112,12 @@ const Plan = () => {
           <CardPeriod>2022.03.22 ~ 2022.08.01</CardPeriod>
         </Card>
       </CardContainer>
-      <Plus>
+      <Plus
+        title="추가하기"
+        onPress={() => {
+          navigation.navigate("plusPlan");
+        }}
+      >
         <PlusText>추가하기</PlusText>
       </Plus>
     </Container>
