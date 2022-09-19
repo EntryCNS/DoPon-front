@@ -11,22 +11,28 @@ const styles = StyleSheet.create({
   loginButton: {
     width: 280,
     height: 64,
+
     backgroundColor: '#538EE6',
     borderRadius: 15,
+
     justifyContent: "center",
     alignItems: "center"
   },
   signupButton: {
     width: 280,
     height: 64,
+
     backgroundColor: '#F08D8D',
     borderRadius: 15,
+
     justifyContent: "center",
     alignItems: "center"
   },
   main_image: {
     width: 320,
     height: 239,
+
+    marginTop: 40,
     marginBottom: 42,
   },
   login_signup_button: {
@@ -39,6 +45,7 @@ const styles = StyleSheet.create({
   },
   main_text: {
     marginBottom: 38,
+
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   google_image: {
-    marginRight: 7
+    marginRight: 7,
   },
   last_text_size: {
     fontSize: 16,
