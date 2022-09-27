@@ -8,11 +8,10 @@ class Auth {
         email_or_id,
         password,
       });
-      console.log(response);
       if (response.status != 200) return false;
 
       await AsyncStorage.setItem("access_token", response.data.access_token);
-      return true;
+      return data;
     } catch (e) {}
   }
 }

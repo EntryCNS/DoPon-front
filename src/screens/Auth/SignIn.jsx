@@ -42,7 +42,8 @@ const SignIn = ({ setIsLogined }) => {
         />
         <SignInBtn
           onPress={async () => {
-            setIsLogined(await AuthApi.trySignIn(emailOrId, password));
+            const data = await AuthApi.trySignIn();
+            console.log(data);
           }}
         >
           <Text>로그인</Text>
