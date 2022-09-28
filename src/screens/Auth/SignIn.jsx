@@ -1,20 +1,23 @@
 import React from "react";
 import { Text, View, TextInput, StyleSheet, TouchableOpacity, Image } from "react-native";
 import DoponImage from '../Images/Dopon.png';
+import { Dimensions } from 'react-native';
+
+const Width = Dimensions.get('window').width;    // 스크린 너비 초기화
+const Height = Dimensions.get('window').height;  // 스크린 높이 초기화
 
 const styles = StyleSheet.create({
   all: {
-    display: 'flex',
+    height: Height,
+    width: Width,
+
+    position: 'relative',
+
     alignItems: 'center',
     justifyContent: 'center'
   },
-  default_text: {
-    color: "#BCBCBC",
-
-    marginTop: 10
-  },
   dopon_image: {
-    marginTop: 110,
+    marginTop: 30,
     marginBottom: 30
   },
   loginButton: {
@@ -24,15 +27,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#538EE6',
     borderRadius: 15,
 
-    marginTop: 35,
-    marginBottom: 30,
-    
+    marginTop: 50,
+
     justifyContent: "center",
     alignItems: "center"
   },
   login_text: {
     fontSize: 17,
     color: "#fff"
+  },
+  default_text: {
+    marginBottom: 8,
+
+    color: "#BCBCBC",
+  },
+  email_password: {
+    height: 173,
+
+    justifyContent: 'space-between',
   },
   input: {
     backgroundColor: '#FFFFFF',
@@ -45,16 +57,12 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: '#bcbcbc',
 
-    marginTop: 10,
-    marginBottom: 15,
-
     paddingLeft: 15
   },
   line: {
-    width: "100%",
+    width: Width,
     height: 1,
 
-    marginTop: 39,
     marginBottom: 24,
 
     backgroundColor: "#BCBCBC"
@@ -69,38 +77,37 @@ const styles = StyleSheet.create({
 const SignIn = ({ navigation }) => {
   return (
     <View style={styles.all}>
-      <Image style={styles.dopon_image} source={DoponImage}/>
+      <Image style={styles.dopon_image} source={DoponImage} />
 
-      <View>
-        <Text style={styles.default_text}>이메일</Text>
-        <TextInput style={styles.input}/>
-        <Text style={styles.default_text}>비밀번호</Text>
-        <TextInput style={styles.input}/>
+      <View style={styles.email_password}>
+        <View>
+          <Text style={styles.default_text}>이메일</Text>
+          <TextInput style={styles.input} />
+        </View>
+        <View>
+          <Text style={styles.default_text}>비밀번호</Text>
+          <TextInput style={styles.input} />
+        </View>
       </View>
 
       <View>
         <TouchableOpacity activeOpacity={0.8} style={styles.loginButton} onPress={() => {
-          navigation.navigate("");}}>
+          navigation.navigate("");
+        }}>
           <Text style={styles.login_text}>로그인</Text>
         </TouchableOpacity>
       </View>
 
-      <Text>
-        <Text style={styles.default_text}>비밀번호를 잊으셨나요?</Text>
-        <TouchableOpacity onPress={() => {
-          navigation.navigate("");
-        }}><Text style={styles.blue_text}>비밀번호 찾기</Text></TouchableOpacity>
-      </Text>
-
-      <View style={styles.line}/>
+      <View style={styles.line} />
 
       <Text>
         <Text style={styles.default_text}>아직 회원이 아니신가요?</Text>
         <TouchableOpacity onPress={() => {
           navigation.navigate("SignUp");
-        }}><Text style={styles.blue_text}>로그인</Text></TouchableOpacity>
+        }}><Text style={styles.blue_text}>회원가입</Text></TouchableOpacity>
       </Text>
     </View>
+
   );
 };
 

@@ -1,18 +1,19 @@
 import React from "react";
 import { Text, View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
+import { Dimensions } from 'react-native';
+
+const Width = Dimensions.get('window').width;    // 스크린 너비 초기화
+const Height = Dimensions.get('window').height;  // 스크린 높이 초기화
 
 const styles = StyleSheet.create({
   all: {
-    display: 'flex',
+    height: Height,
+    width: Width,
+
+    position: 'relative',
+
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  default_text: {
-    color: "#BCBCBC",
-  },
-  dopon_image: {
-    marginTop: 120,
-    marginBottom: 30
   },
   loginButton: {
     width: 280,
@@ -30,8 +31,15 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: "#fff"
   },
+  default_text: {
+    marginTop: 10,
+
+    color: "#BCBCBC",
+  },
   all_input: {
-    marginTop: 75
+    height: 360,
+
+    justifyContent: 'space-between',
   },
   input: {
     backgroundColor: '#FFFFFF',
@@ -44,16 +52,12 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: '#bcbcbc',
 
-    marginTop: 10,
-    marginBottom: 15,
-
     paddingLeft: 15
   },
   line: {
-    width: "100%",
+    width: Width,
     height: 1,
 
-    marginTop: 50,
     marginBottom: 24,
 
     backgroundColor: "#BCBCBC"
