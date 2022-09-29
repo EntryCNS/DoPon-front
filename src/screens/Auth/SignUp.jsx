@@ -39,6 +39,8 @@ const styles = StyleSheet.create({
   all_input: {
     height: 360,
 
+    marginTop: 70,
+
     justifyContent: 'space-between',
   },
   input: {
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
     width: Width,
     height: 1,
 
+    marginTop: 50,
     marginBottom: 24,
 
     backgroundColor: "#BCBCBC"
@@ -82,7 +85,7 @@ const SignUp = ({ navigation }) => {
         <Text style={styles.default_text}>비밀번호</Text>
         <TextInput style={styles.input}/>
       </View>
-
+      
       <View>
         <TouchableOpacity activeOpacity={0.8} style={styles.loginButton} onPress={() => {
             navigation.navigate("");}}>

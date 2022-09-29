@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   dopon_image: {
-    marginTop: 30,
+    marginTop: 100,
     marginBottom: 30
   },
   loginButton: {
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     width: Width,
     height: 1,
 
+    marginTop: 100,
     marginBottom: 24,
 
     backgroundColor: "#BCBCBC"
