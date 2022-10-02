@@ -4,7 +4,7 @@ import TabNavigation from "./navigations/Tab";
 import StackNavigation from "./navigations/Stack";
 
 const Navigator = () => {
-  const [isLogined, setIsLogined] = useState(false);
+  const [isLogined, setIsLogined] = useState(true);
   return (
     <NavigationContainer>
       {!isLogined ? (
