@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home, Plan, Analytics, Menu } from "../screens/TabScreens";
-import { HomeStackScreen } from "./HomeStack";
+import { HomeStackScreen, PlanStackScreen } from "./customStack";
 import {
   HomeIcon,
   AnalyticsIcon,
@@ -42,7 +42,7 @@ const TabNavigation = () => {
       />
       <Tab.Screen
         name="Plan"
-        component={Plan}
+        component={PlanStackScreen}
         options={{
           tabBarLabel: "계획",
           tabBarIcon: (props) => <PlanIcon props={props} />,

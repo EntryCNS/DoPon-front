@@ -16,7 +16,7 @@ export const HomeStackScreen = () => {
   }, []);
 
   return (
-    <HomeStack.Navigator
+    <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}
@@ -25,6 +25,6 @@ export const HomeStackScreen = () => {
       <HomeStack.Screen name="webView">
         {(props) => <WebView token={token}></WebView>}
       </HomeStack.Screen>
-    </HomeStack.Navigator>
+    </Stack.Navigator>
   );
 };

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
+import PlanPage from "../components/plan/Plan";
+import PlusPlan from "../components/plan/PlusPlan";
 import HomeCom from "../components/home";
 
 const Container = styled.View`
@@ -35,11 +37,7 @@ export const Analytics = () => {
 };
 
 export const Plan = () => {
-  return (
-    <Container>
-      <StyledText>계획</StyledText>
-    </Container>
-  );
+  return <PlusPlan />;
 };
 
 export const Menu = () => {
