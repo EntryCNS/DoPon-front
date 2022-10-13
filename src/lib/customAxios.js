@@ -1,5 +1,11 @@
 import axios from "axios";
 import config from "../config.json";
-const customAxios = axios.create({ baseURL: config.server });
+import AsyncStorage from "@react-native-async-storage/async-storage";
+const customAxios = axios.create({
+  baseURL: config.server,
+  headers: {
+    access_token: `${AsyncStorage.getItem("access_token")}`,
+  },
+});
 
 export default customAxios;

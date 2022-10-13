@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -9,9 +9,64 @@ import {
 } from "react-native";
 import DoponImage from "../Images/Dopon.png";
 import { Dimensions } from "react-native";
+import customAxios from "../../lib/customAxios";
 
 const Width = Dimensions.get("window").width; // 스크린 너비 초기화
 const Height = Dimensions.get("window").height; // 스크린 높이 초기화
+
+const SignIn = ({ navigation }) => {
+  async function signIn(email_or_id, password) {
+    const data = await customAxios.post("auth/sign-in", {
+      email_or_id,
+      password,
+    });
+  }
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  return (
+    <View style={styles.all}>
+      <Image style={styles.dopon_image} source={DoponImage} />
+
+      <View style={styles.email_password}>
+        <View>
+          <Text style={styles.default_text}>이메일</Text>
+          <TextInput style={styles.input} onChangeText={setEmail} />
+        </View>
+        <View>
+          <Text style={styles.default_text}>비밀번호</Text>
+          <TextInput style={styles.input} onChangeText={setPassword} />
+        </View>
+      </View>
+
+      <View>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={styles.loginButton}
+          onPress={() => {
+            signIn(email, password);
+          }}
+        >
+          <Text style={styles.login_text}>로그인</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.line} />
+
+      <Text>
+        <Text style={styles.default_text}>아직 회원이 아니신가요?</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("SignUp");
+          }}
+        >
+          <Text style={styles.blue_text}>회원가입</Text>
+        </TouchableOpacity>
+      </Text>
+    </View>
+  );
+};
+
+export default SignIn;
 
 const styles = StyleSheet.create({
   all: {
@@ -81,49 +136,3 @@ const styles = StyleSheet.create({
     paddingLeft: 7,
   },
 });
-
-const SignIn = ({ navigation }) => {
-  return (
-    <View style={styles.all}>
-      <Image style={styles.dopon_image} source={DoponImage} />
-
-      <View style={styles.email_password}>
-        <View>
-          <Text style={styles.default_text}>이메일</Text>
-          <TextInput style={styles.input} />
-        </View>
-        <View>
-          <Text style={styles.default_text}>비밀번호</Text>
-          <TextInput style={styles.input} />
-        </View>
-      </View>
-
-      <View>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={styles.loginButton}
-          onPress={() => {
-            navigation.navigate("");
-          }}
-        >
-          <Text style={styles.login_text}>로그인</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.line} />
-
-      <Text>
-        <Text style={styles.default_text}>아직 회원이 아니신가요?</Text>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("SignUp");
-          }}
-        >
-          <Text style={styles.blue_text}>회원가입</Text>
-        </TouchableOpacity>
-      </Text>
-    </View>
-  );
-};
-
-export default SignIn;

@@ -6,6 +6,7 @@ class Home {
     customAxios.get("/", () => {
       return data;
     });
+    return "hi";
   }
 }
 

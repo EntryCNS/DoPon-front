@@ -66,6 +66,7 @@ const Container = styled.View`
   background-color: #fff;
   border-radius: 20px;
   padding: 24px;
+  margin-bottom: 100px;
 `;
 const ItemContainer = styled.View`
   margin-top: 18px;

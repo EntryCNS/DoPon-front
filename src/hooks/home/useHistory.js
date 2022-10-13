@@ -2,9 +2,8 @@ import React from "react";
 import HomeApi from "../../api/Home.api";
 import { useEffect } from "react";
 const useHistory = () => {
-  useEffect(() => {
-    // HomeApi();
-  });
+  const homeApi = HomeApi;
+  useEffect(() => {});
   const data = [
     {
       month: 5,
@@ -57,7 +56,7 @@ const useHistory = () => {
     },
     {
       month: 5,
-      day: 20,
+      day: 21,
       item: [
         {
           time: "18:20",
@@ -77,7 +76,7 @@ const useHistory = () => {
     },
     {
       month: 5,
-      day: 20,
+      day: 22,
       item: [
         {
           time: "18:20",
@@ -90,7 +89,7 @@ const useHistory = () => {
     },
     {
       month: 5,
-      day: 20,
+      day: 24,
       item: [
         {
           time: "18:20",

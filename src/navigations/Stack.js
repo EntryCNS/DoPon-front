@@ -7,10 +7,18 @@ const Stack = createStackNavigator();
 
 const StackNavigation = ({ setIsLogined }) => {
   return (
-    <Stack.Navigator initialRouteName="firstScreen" screenOptions = {{ headerShown: false }}>
+    <Stack.Navigator
+      initialRouteName="firstScreen"
+      screenOptions={{ headerShown: false }}
+    >
       <Stack.Screen name="Auth" component={Auth} />
       <Stack.Screen name="SignIn">
-        {(props) => <SignIn setIsLogined={setIsLogined}></SignIn>}
+        {(props) => (
+          <SignIn
+            setIsLogined={setIsLogined}
+            navigation={props.navigation}
+          ></SignIn>
+        )}
       </Stack.Screen>
       <Stack.Screen name="SignUp" component={SignUp} />
     </Stack.Navigator>
