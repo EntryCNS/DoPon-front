@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import PlanPage from "../components/plan/Plan";
 import PlusPlan from "../components/plan/PlusPlan";
 import HomeCom from "../components/home";
+import AnalyticsCom from "../components/Analytics";
 
 const Container = styled.View`
   flex: 1;
@@ -31,7 +32,7 @@ export const Home = () => {
 export const Analytics = () => {
   return (
     <Container>
-      <StyledText>분석</StyledText>
+      <AnalyticsCom />
     </Container>
   );
 };
