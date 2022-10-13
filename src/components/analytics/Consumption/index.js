@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
 import { VictoryBar, VictoryChart, VictoryAxis } from "victory-native";
-// import Icon from "react-native-vector-icons/AntDesign";
 import DropDownPicker from "react-native-dropdown-picker";
 
 const Container = styled.View`
   position: relative;
 `;
-
-// const DropDown = styled.View`
-//   margin: 40px 0 26px 36px;
-// `;
-
-// const DropDownText = styled.Text`
-//   color: #434343;
-//   font-weight: 700;
-//   font-size: 18px;
-// `;
 
 const ChartContainer = styled.View`
   display: flex;
@@ -89,7 +78,6 @@ const Consumption = () => {
       currentMonthIndex - 3,
       currentMonthIndex + 2
     );
-    console.log("sD", sliceData);
     setData(sliceData);
   };
 
