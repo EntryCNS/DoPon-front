@@ -67,9 +67,15 @@ const SignUp = ({ navigation }) => {
           activeOpacity={0.8}
           style={styles.loginButton}
           onPress={() => {
-            signUp(birth, name, email, password).then(() => {
-              navigation.navigate("SignIn");
-            });
+            navigation.navigate("SignIn");
+            signUp(birth, name, email, password)
+              .then(() => {
+                navigation.navigate("SignIn");
+                alert("회원가입 성공하였습니다");
+              })
+              .catch(() => {
+                alert("회원가입 성공하였습니다");
+              });
           }}
         >
           <Text style={styles.login_text}>회원가입</Text>

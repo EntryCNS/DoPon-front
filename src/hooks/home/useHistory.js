@@ -12,14 +12,6 @@ const useHistory = () => {
         {
           time: "18:20",
           name: "정우재",
-          money: "8000",
-          amount: "2,445,000",
-          type: "plus",
-        },
-
-        {
-          time: "18:20",
-          name: "정우재",
           money: "-8000",
           amount: "2,445,000",
           type: "minuse",

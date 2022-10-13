@@ -40,20 +40,6 @@ const card = [
     type: "저축통장",
     color: "#FF4A4A",
   },
-  {
-    id: 2,
-    account: "1111-11-1234567",
-    monney: "2,433,000",
-    type: "저축통장",
-    color: "#54BAB9",
-  },
-  {
-    id: 3,
-    account: "1111-11-1234567",
-    monney: "2,433,000",
-    type: "저축통장",
-    color: "orange",
-  },
 ];
 const MyWallet = ({ navigation }) => {
   const [selectedPage, setSelectedPage] = useState(0);

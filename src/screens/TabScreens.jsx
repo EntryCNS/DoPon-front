@@ -40,10 +40,10 @@ export const Plan = () => {
   return <PlusPlan />;
 };
 
-export const Menu = () => {
-  return (
-    <Container>
-      <StyledText>전체</StyledText>
-    </Container>
-  );
-};
+// export const Menu = () => {
+//   return (
+//     <Container>
+//       <StyledText>전체</StyledText>
+//     </Container>
+//   );
+// };

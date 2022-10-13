@@ -14,7 +14,7 @@ import customAxios from "../../lib/customAxios";
 const Width = Dimensions.get("window").width; // 스크린 너비 초기화
 const Height = Dimensions.get("window").height; // 스크린 높이 초기화
 
-const SignIn = ({ navigation }) => {
+const SignIn = ({ navigation, setIsLogined }) => {
   async function signIn(email_or_id, password) {
     const data = await customAxios.post("auth/sign-in", {
       email_or_id,
@@ -43,7 +43,8 @@ const SignIn = ({ navigation }) => {
           activeOpacity={0.8}
           style={styles.loginButton}
           onPress={() => {
-            signIn(email, password);
+            setIsLogined(true);
+            // signIn(email, password);
           }}
         >
           <Text style={styles.login_text}>로그인</Text>

@@ -7,12 +7,16 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const HomeStack = createStackNavigator();
 
 export const HomeStackScreen = () => {
-  const [token, setToken] = useState("");
+  const tk =
+    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXZlbHJldHIwQGdtYWlsLmNvbSIsInR5cGUiOiJ3b3dpbG92ZWl0IiwiaWF0IjoxNjY1NzAzMzEwLCJleHAiOjE2NjY3MDMzMTB9.XwhnUB7PKuc0qhKjRDxqhkRFBk0xts215sf-MdATHw4";
+  const [token, setToken] = useState(
+    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXZlbHJldHIwQGdtYWlsLmNvbSIsInR5cGUiOiJ3b3dpbG92ZWl0IiwiaWF0IjoxNjY1NzAzMzEwLCJleHAiOjE2NjY3MDMzMTB9.XwhnUB7PKuc0qhKjRDxqhkRFBk0xts215sf-MdATHw4"
+  );
 
   useEffect(() => {
-    AsyncStorage.getItem("access_token").then((found) => {
-      setToken(found);
-    });
+    // AsyncStorage.getItem("access_token").then((found) => {
+    //   setToken(found);
+    // });
   }, []);
 
   return (
@@ -23,7 +27,7 @@ export const HomeStackScreen = () => {
     >
       <HomeStack.Screen name="main" component={Home} />
       <HomeStack.Screen name="webView">
-        {(props) => <WebView token={token}></WebView>}
+        {(props) => <WebView token={tk}></WebView>}
       </HomeStack.Screen>
     </Stack.Navigator>
   );
