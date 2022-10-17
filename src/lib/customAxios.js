@@ -6,6 +6,7 @@ const customAxios = axios.create({
   headers: {
     access_token: `${AsyncStorage.getItem("access_token")}`,
   },
+  timeout: 1000,
 });
 
 export default customAxios;

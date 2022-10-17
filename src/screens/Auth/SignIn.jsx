@@ -10,16 +10,24 @@ import {
 import DoponImage from "../Images/Dopon.png";
 import { Dimensions } from "react-native";
 import customAxios from "../../lib/customAxios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Width = Dimensions.get("window").width; // 스크린 너비 초기화
 const Height = Dimensions.get("window").height; // 스크린 높이 초기화
 
 const SignIn = ({ navigation, setIsLogined }) => {
-  async function signIn(email_or_id, password) {
-    const data = await customAxios.post("auth/sign-in", {
-      email_or_id,
-      password,
-    });
+  async function trySignIn(email_or_id, password) {
+    try {
+      const { data } = await customAxios.post("auth/sign-in", {
+        email,
+        password,
+      });
+      await AsyncStorage.setItem("access_token", data.access_token);
+      setIsLogined(true);
+    } catch (error) {
+      console.log(error);
+      alert("이메일과 아이디가 일치하지 않습니다.");
+    }
   }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +42,12 @@ const SignIn = ({ navigation, setIsLogined }) => {
         </View>
         <View>
           <Text style={styles.default_text}>비밀번호</Text>
-          <TextInput style={styles.input} onChangeText={setPassword} />
+          <TextInput
+            style={styles.input}
+            onChangeText={setPassword}
+            value={password}
+            secureTextEntry={true}
+          />
         </View>
       </View>
 
@@ -43,8 +56,7 @@ const SignIn = ({ navigation, setIsLogined }) => {
           activeOpacity={0.8}
           style={styles.loginButton}
           onPress={() => {
-            setIsLogined(true);
-            // signIn(email, password);
+            trySignIn(email, password);
           }}
         >
           <Text style={styles.login_text}>로그인</Text>

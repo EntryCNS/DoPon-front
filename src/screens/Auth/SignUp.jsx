@@ -18,15 +18,19 @@ const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function signUp(birthday, name, email, password) {
-    console.log(birthday, name, email, password);
-    const data = await customAxios.post("/auth/sign-up", {
-      birthday,
-      name,
-      email,
-      password,
-    });
-    return data;
+  async function trySignUp(birthday, name, email, password) {
+    try {
+      await customAxios.post("/auth/sign-up", {
+        birthday,
+        name,
+        email,
+        password,
+      });
+      alert("회원가입 성공!");
+      navigation.navigate("SignIn");
+    } catch (error) {
+      alert("회원가입을 실패하였습니다");
+    }
   }
 
   return (
@@ -35,7 +39,7 @@ const SignUp = ({ navigation }) => {
         <Text style={styles.default_text}>생년월일</Text>
         <TextInput
           style={styles.input}
-          placeholder="202005050526"
+          placeholder="20050526"
           onChangeText={setBirth}
           value={birth}
           maxLength={8}
@@ -59,6 +63,7 @@ const SignUp = ({ navigation }) => {
           style={styles.input}
           placeholder="8자리 이상"
           onChangeText={setPassword}
+          secureTextEntry={true}
         />
       </View>
 
@@ -67,15 +72,7 @@ const SignUp = ({ navigation }) => {
           activeOpacity={0.8}
           style={styles.loginButton}
           onPress={() => {
-            navigation.navigate("SignIn");
-            signUp(birth, name, email, password)
-              .then(() => {
-                navigation.navigate("SignIn");
-                alert("회원가입 성공하였습니다");
-              })
-              .catch(() => {
-                alert("회원가입 성공하였습니다");
-              });
+            trySignUp(birth, name, email, password);
           }}
         >
           <Text style={styles.login_text}>회원가입</Text>
