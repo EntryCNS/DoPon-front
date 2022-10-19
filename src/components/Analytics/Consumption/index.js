@@ -103,7 +103,6 @@ const Consumption = () => {
         value={selectedMonth}
         setValue={setSelectedMonth}
         items={item}
-        itemKey={item.map((item, idx) => idx)[0]}
         setItems={setItem}
         onChangeValue={changeGraphData}
       />

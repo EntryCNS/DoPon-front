@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components/native";
 import Consumption from "./Consumption";
-const Container = styled.View`
+import PieGraph from "./PieGraph";
+
+const Container = styled.ScrollView`
   display: flex;
   padding: 12px;
   background: #fafafa;
@@ -12,6 +14,7 @@ const Analytics = () => {
   return (
     <Container>
       <Consumption />
+      <PieGraph />
     </Container>
   );
 };
