@@ -1,10 +1,14 @@
-import React from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useEffect } from "react";
 import { Text, View } from "react-native";
 import styled from "styled-components/native";
 import useHistory from "../../../hooks/home/useHistory";
-
+import customAxios from "../../../lib/customAxios";
 const History = () => {
   const { data } = useHistory();
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <Container>
       <TitleText fontSize="18px" fontWeight="700">
