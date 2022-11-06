@@ -124,7 +124,12 @@ const PlusText = styled.Text`
   color: #ffffff;
 `;
 
-const PlusPlan = () => {
+const PlusButton = styled.Button`
+  color: white;
+  width: 100%;
+`;
+
+const PlusPlan = ({ navigation }) => {
   return (
     <Container>
       <Title>계획</Title>
@@ -150,7 +155,14 @@ const PlusPlan = () => {
           </Label>
         </LabelContainer>
         <Plus>
-          <PlusText>추가하기</PlusText>
+          <PlusButton
+            title="추가하기"
+            onPress={() => {
+              navigation.navigate("plan");
+            }}
+          >
+            <PlusText>추가하기</PlusText>
+          </PlusButton>
         </Plus>
       </CardContainer>
     </Container>
