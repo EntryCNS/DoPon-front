@@ -11,7 +11,7 @@ const Container = styled.ScrollView`
   padding: 80px 0 50px 20px;
   /* justify-content: center; */
   /* align-items: center; */
-  background-color: #e5e5e5;
+  background-color: #fafafa;
 `;
 
 const Home = ({ navigation }) => {

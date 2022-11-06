@@ -48,14 +48,6 @@ const TabNavigation = () => {
           tabBarIcon: (props) => <PlanIcon props={props} />,
         }}
       />
-      <Tab.Screen
-        name="menu"
-        component={Menu}
-        options={{
-          tabBarLabel: "전체",
-          tabBarIcon: (props) => <MenuIcon props={props} />,
-        }}
-      />
     </Tab.Navigator>
   );
 };
