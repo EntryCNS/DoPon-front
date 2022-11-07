@@ -3,6 +3,7 @@ import Home from "../components/home";
 import Plan from "../components/plan/Plan";
 import PlusPlan from "../components/plan/PlusPlan";
 import WebView from "../components/common/webView/webView";
+import Detail from "../components/plan/Detail";
 const Stack = createStackNavigator();
 
 export const HomeStackScreen = () => {
@@ -27,6 +28,7 @@ export const PlanStackScreen = () => {
     >
       <Stack.Screen name="plan" component={Plan} />
       <Stack.Screen name="plusPlan" component={PlusPlan} />
+      <Stack.Screen name="detail" component={Detail} />
     </Stack.Navigator>
   );
 };
