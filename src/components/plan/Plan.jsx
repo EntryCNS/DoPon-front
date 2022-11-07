@@ -57,11 +57,11 @@ const Plus = styled.Button`
 `;
 
 const CardContainer = styled.ScrollView`
-  height: 494px;
+  height: 454px;
 `;
 
 const Container = styled.View`
-  height: 636px;
+  height: 606px;
 `;
 
 const PlusText = styled.Text`
