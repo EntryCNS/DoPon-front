@@ -7,7 +7,7 @@ import customAxios from "../../../lib/customAxios";
 const History = () => {
   const { data } = useHistory();
   useEffect(() => {
-    getData();
+    // getData();
   }, []);
   return (
     <Container>

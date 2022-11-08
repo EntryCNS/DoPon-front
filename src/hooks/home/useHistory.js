@@ -22,7 +22,7 @@ const useHistory = () => {
 
   useEffect(() => {
     getHistory();
-  });
+  }, []);
   const data = [
     {
       month: 5,

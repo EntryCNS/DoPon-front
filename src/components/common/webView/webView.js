@@ -27,9 +27,8 @@ const WebViewScreen = ({ navigation }) => {
           onError={() => {
             navigation.navigate("main");
           }}
-        >
-          <Text>diasd</Text>
-        </WebView>
+          on
+        ></WebView>
       ) : (
         <Text>loading...</Text>
       )}
