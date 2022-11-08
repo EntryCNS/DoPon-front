@@ -5,10 +5,10 @@ const Legend = () => {
     <>
       <VictoryLegend
         style={{
-          zIndex: 100,
-          labels: { fontWeight: 500, fontSize: 13 },
+          position: "absolute",
+          labels: { fontSize: 14 },
         }}
-        y={70}
+        y={60}
         x={220}
         data={[
           { name: "기타 62%", symbol: { fill: "#538EE5", type: "square" } },

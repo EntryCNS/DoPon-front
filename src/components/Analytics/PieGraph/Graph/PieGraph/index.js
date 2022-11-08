@@ -1,3 +1,4 @@
+import styled from "styled-components/native";
 import {
   VictoryAxis,
   VictoryChart,
@@ -5,10 +6,11 @@ import {
   VictoryPie,
 } from "victory-native";
 import Legend from "./Legend";
+
 const Graph = () => {
   return (
-    <>
-      <VictoryChart width={240} height={240}>
+    <GraphContainer>
+      <VictoryChart width={230} height={240}>
         <VictoryAxis
           style={{
             axis: { display: "none" },
@@ -32,8 +34,16 @@ const Graph = () => {
         />
         <Legend />
       </VictoryChart>
-    </>
+    </GraphContainer>
   );
 };
 
 export default Graph;
+
+const GraphContainer = styled.View`
+  position: absolute;
+  top: 40;
+  left: -30;
+  width: 250px;
+  height: 250px;
+`;
