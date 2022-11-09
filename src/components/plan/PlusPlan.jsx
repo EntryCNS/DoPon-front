@@ -3,7 +3,7 @@ import { Text, View, ScrollView } from "react-native";
 import styled from "styled-components/native";
 
 const Container = styled.View`
-  height: 636px;
+  height: 606px;
 `;
 
 const Title = styled.Text`
@@ -20,7 +20,7 @@ const CardContainer = styled.View`
   background: #ffffff;
   border-radius: 15px;
   width: 351px;
-  height: 566px;
+  height: 456px;
 
   margin: 0 auto;
 `;
@@ -28,7 +28,7 @@ const CardContainer = styled.View`
 const Back = styled.View`
   margin-top: 27px;
   margin-left: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 
   background-color: blue;
 
@@ -41,12 +41,12 @@ const Input = styled.TextInput`
   border: 1px solid #bcbcbc;
   border-radius: 15px;
 
-  height: 56px;
+  height: 40px;
   padding-left: 24px;
 `;
 
 const Label = styled.View`
-  height: 81px;
+  height: 60px;
   margin: 0 auto;
   width: 303px;
 
@@ -92,7 +92,7 @@ const InputFlex = styled.TextInput`
   border: 1px solid #bcbcbc;
   border-radius: 15px;
 
-  height: 56px;
+  height: 40px;
   padding-left: 24px;
 
   width: 137px;
@@ -109,7 +109,7 @@ const Plus = styled.View`
 
   margin: 0 auto;
 
-  margin-top: 60px;
+  margin-top: 30px;
 `;
 
 const PlusText = styled.Text`
@@ -124,7 +124,12 @@ const PlusText = styled.Text`
   color: #ffffff;
 `;
 
-const PlusPlan = () => {
+const PlusButton = styled.Button`
+  color: white;
+  width: 100%;
+`;
+
+const PlusPlan = ({ navigation }) => {
   return (
     <Container>
       <Title>계획</Title>
@@ -150,7 +155,14 @@ const PlusPlan = () => {
           </Label>
         </LabelContainer>
         <Plus>
-          <PlusText>추가하기</PlusText>
+          <PlusButton
+            title="추가하기"
+            onPress={() => {
+              navigation.navigate("plananalyics");
+            }}
+          >
+            <PlusText>추가하기</PlusText>
+          </PlusButton>
         </Plus>
       </CardContainer>
     </Container>
