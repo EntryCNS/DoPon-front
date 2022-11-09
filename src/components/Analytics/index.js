@@ -16,7 +16,6 @@ const Analytics = () => {
     >
       <Consumption />
       <PieGraph />
-      <Category />
     </Container>
   );
 };
