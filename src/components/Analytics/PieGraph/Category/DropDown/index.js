@@ -4,8 +4,6 @@ import Icon from "react-native-vector-icons/AntDesign";
 import styled from "styled-components/native";
 import src from "../../../../../../assets/Analytics0.png";
 const DropDown = ({ item, index }) => {
-  console.log(index);
-  const strIndex = index + "";
   return (
     <DropDownContainer>
       <ImgTitleContainer>
