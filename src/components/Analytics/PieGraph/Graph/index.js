@@ -1,11 +1,13 @@
 import Graph from "./PieGraph";
 import styled from "styled-components/native";
+import Category from "../Category";
 
 const PieGraph = () => {
   return (
     <Container>
       <TitleText>카테고리 분석</TitleText>
       <Graph />
+      <Category />
     </Container>
   );
 };
@@ -17,7 +19,7 @@ const Container = styled.View`
   margin-top: 40px;
   position: relative;
   width: 350px;
-  height: 400px;
+  height: auto;
   border-radius: 20px;
   background-color: #fff;
 `;
