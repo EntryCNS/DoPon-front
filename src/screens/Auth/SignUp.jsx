@@ -29,6 +29,7 @@ const SignUp = ({ navigation }) => {
       alert("회원가입 성공!");
       navigation.navigate("SignIn");
     } catch (error) {
+      console.log(error);
       alert("회원가입을 실패하였습니다");
     }
   }
