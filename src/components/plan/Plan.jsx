@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView, Button } from "react-native";
 import styled from "styled-components/native";
 
 const Title = styled.Text`
@@ -82,32 +82,68 @@ const Plan = ({ navigation }) => {
       <Title>계획</Title>
       <CardContainer>
         <Card>
-          <CardTitle>가방</CardTitle>
+          <Button
+            title="가방"
+            onPress={() => {
+              navigation.navigate("plananalyics");
+            }}
+            color="black"
+          ></Button>
           <CardPrice>2,085,396</CardPrice>
           <CardPeriod>2022.03.22 ~ 2022.08.01</CardPeriod>
         </Card>
         <Card>
-          <CardTitle>가방</CardTitle>
+          <Button
+            title="가방"
+            onPress={() => {
+              navigation.navigate("plananalyics");
+            }}
+            color="black"
+          ></Button>
           <CardPrice>2,085,396</CardPrice>
           <CardPeriod>2022.03.22 ~ 2022.08.01</CardPeriod>
         </Card>
         <Card>
-          <CardTitle>가방</CardTitle>
+          <Button
+            title="가방"
+            onPress={() => {
+              navigation.navigate("plananalyics");
+            }}
+            color="black"
+          ></Button>
           <CardPrice>2,085,396</CardPrice>
           <CardPeriod>2022.03.22 ~ 2022.08.01</CardPeriod>
         </Card>
         <Card>
-          <CardTitle>가방</CardTitle>
+          <Button
+            title="가방"
+            onPress={() => {
+              navigation.navigate("plananalyics");
+            }}
+            color="black"
+          ></Button>
           <CardPrice>2,085,396</CardPrice>
           <CardPeriod>2022.03.22 ~ 2022.08.01</CardPeriod>
         </Card>
         <Card>
-          <CardTitle>가방</CardTitle>
+          <Button
+            title="가방"
+            onPress={() => {
+              navigation.navigate("plananalyics");
+            }}
+            color="black"
+          ></Button>
           <CardPrice>2,085,396</CardPrice>
           <CardPeriod>2022.03.22 ~ 2022.08.01</CardPeriod>
         </Card>
         <Card>
-          <CardTitle>가방</CardTitle>
+          <Button
+            title="가방"
+            onPress={() => {
+              navigation.navigate("plananalyics");
+            }}
+            color="black"
+          ></Button>
           <CardPrice>2,085,396</CardPrice>
           <CardPeriod>2022.03.22 ~ 2022.08.01</CardPeriod>
         </Card>

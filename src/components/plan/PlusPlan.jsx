@@ -1,6 +1,7 @@
 import React from "react";
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
+import back from "../../../assets/Icon/Back.png";
 
 const Container = styled.View`
   height: 606px;
@@ -25,12 +26,10 @@ const CardContainer = styled.View`
   margin: 0 auto;
 `;
 
-const Back = styled.View`
+const Back = styled.Image`
   margin-top: 27px;
   margin-left: 24px;
   margin-bottom: 12px;
-
-  background-color: blue;
 
   width: 24px;
   height: 24px;
@@ -134,7 +133,13 @@ const PlusPlan = ({ navigation }) => {
     <Container>
       <Title>계획</Title>
       <CardContainer>
-        <Back></Back>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("plan");
+          }}
+        >
+          <Back source={back} />
+        </TouchableOpacity>
         <CardTitle>계획 추가</CardTitle>
         <Label>
           <LabelText>상품명</LabelText>
@@ -160,6 +165,7 @@ const PlusPlan = ({ navigation }) => {
             onPress={() => {
               navigation.navigate("plananalyics");
             }}
+            color="black"
           >
             <PlusText>추가하기</PlusText>
           </PlusButton>

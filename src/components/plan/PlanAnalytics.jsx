@@ -1,7 +1,34 @@
 import React from "react";
-import { Text, View } from "react-native";
-import styled from "styled-components/native";
+import { Text, TouchableOpacity, View } from "react-native";
+import styled, { css } from "styled-components/native";
 import Progress from "./Progress";
+import back from "../../../assets/Icon/Back.png";
+import other from "../../../assets/Icon/ohter.png";
+import food from "../../../assets/Icon/food.png";
+
+const colorStyle = {
+  green: css`
+    background-color: #99c298;
+  `,
+  blue: css`
+    background-color: #538ee5;
+  `,
+  red: css`
+    background-color: #f08d8d;
+  `,
+  yellow: css`
+    background-color: #ffdd90;
+  `,
+  sky: css`
+    background-color: #a9bede;
+  `,
+  blue2: css`
+    background-color: #7392cd;
+  `,
+  gray: css`
+    background-color: #cecece;
+  `,
+};
 
 const PlanAnalyticsStyle = styled.ScrollView`
   height: 606px;
@@ -18,12 +45,10 @@ const Title = styled.Text`
   margin-bottom: 20px;
 `;
 
-const Back = styled.View`
+const Back = styled.Image`
   margin-top: 27px;
   margin-left: 36px;
   margin-bottom: 12px;
-
-  background-color: blue;
 
   width: 24px;
   height: 24px;
@@ -184,6 +209,11 @@ const LogoImage = styled.View`
   height: 40px;
   border-radius: 50%;
   background: #538ee5;
+  ${({ color }) => colorStyle[color]}
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const LogoText = styled.Text`
   font-weight: 400;
@@ -194,12 +224,20 @@ const LogoText = styled.Text`
   margin: 0 auto;
 `;
 
+const CustomImage = styled.Image``;
+
 const PlanAnalytics = ({ navigation }) => {
   return (
     <>
       <Title>내 계획</Title>
       <PlanAnalyticsStyle>
-        <Back></Back>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("plusPlan");
+          }}
+        >
+          <Back source={back} />
+        </TouchableOpacity>
         <Analytics>
           <Header>
             <Production>
@@ -211,7 +249,7 @@ const PlanAnalytics = ({ navigation }) => {
               <ButtonText title="저금하기" color="#f08d8d" />
             </SaveButton>
           </Header>
-          <Progress size="lg" />
+          <Progress size="lg" color="blue" recommend="20" current="10" />
           <Today>
             <TodayTitle>오늘 권장 소비</TodayTitle>
             <TodayMoney>80,000원</TodayMoney>
@@ -226,9 +264,11 @@ const PlanAnalytics = ({ navigation }) => {
             <KategoryEach>
               <KategoryLogo>
                 <LogoText>기타</LogoText>
-                <LogoImage></LogoImage>
+                <LogoImage color="blue">
+                  <CustomImage source={other} />
+                </LogoImage>
               </KategoryLogo>
-              <Progress size="md" />
+              <Progress size="md" color="blue" recommend="20" current="20" />
               <KategoryIconContainer>
                 <KategoryIcon>+</KategoryIcon>
               </KategoryIconContainer>
@@ -236,10 +276,12 @@ const PlanAnalytics = ({ navigation }) => {
             {/* 2 */}
             <KategoryEach>
               <KategoryLogo>
-                <LogoText>기타</LogoText>
-                <LogoImage></LogoImage>
+                <LogoText>식비</LogoText>
+                <LogoImage color="red">
+                  <CustomImage source={food} />
+                </LogoImage>
               </KategoryLogo>
-              <Progress size="md" />
+              <Progress size="md" color="red" recommend="35" current="40" />
               <KategoryIconContainer>
                 <KategoryIcon>+</KategoryIcon>
               </KategoryIconContainer>
@@ -247,10 +289,10 @@ const PlanAnalytics = ({ navigation }) => {
             {/* 3 */}
             <KategoryEach>
               <KategoryLogo>
-                <LogoText>기타</LogoText>
-                <LogoImage></LogoImage>
+                <LogoText>교통</LogoText>
+                <LogoImage color="yellow"></LogoImage>
               </KategoryLogo>
-              <Progress size="md" />
+              <Progress size="md" color="yellow" recommend="15" current="15" />
               <KategoryIconContainer>
                 <KategoryIcon>+</KategoryIcon>
               </KategoryIconContainer>
@@ -258,10 +300,10 @@ const PlanAnalytics = ({ navigation }) => {
             {/* 4 */}
             <KategoryEach>
               <KategoryLogo>
-                <LogoText>기타</LogoText>
-                <LogoImage></LogoImage>
+                <LogoText>취미</LogoText>
+                <LogoImage color="gray"></LogoImage>
               </KategoryLogo>
-              <Progress size="md" />
+              <Progress size="md" color="gray" recommend="40" current="12" />
               <KategoryIconContainer>
                 <KategoryIcon>+</KategoryIcon>
               </KategoryIconContainer>
@@ -269,10 +311,32 @@ const PlanAnalytics = ({ navigation }) => {
             {/* 5 */}
             <KategoryEach>
               <KategoryLogo>
-                <LogoText>기타</LogoText>
-                <LogoImage></LogoImage>
+                <LogoText>여행</LogoText>
+                <LogoImage color="sky"></LogoImage>
               </KategoryLogo>
-              <Progress size="md" />
+              <Progress size="md" color="sky" recommend="5" current="10" />
+              <KategoryIconContainer>
+                <KategoryIcon>+</KategoryIcon>
+              </KategoryIconContainer>
+            </KategoryEach>
+            {/* 6 */}
+            <KategoryEach>
+              <KategoryLogo>
+                <LogoText>쇼핑</LogoText>
+                <LogoImage color="blue"></LogoImage>
+              </KategoryLogo>
+              <Progress size="md" color="blue2" recommend="20" current="13" />
+              <KategoryIconContainer>
+                <KategoryIcon>+</KategoryIcon>
+              </KategoryIconContainer>
+            </KategoryEach>
+            {/* 7 */}
+            <KategoryEach>
+              <KategoryLogo>
+                <LogoText>월세</LogoText>
+                <LogoImage color="green"></LogoImage>
+              </KategoryLogo>
+              <Progress size="md" color="green" recommend="30" current="26" />
               <KategoryIconContainer>
                 <KategoryIcon>+</KategoryIcon>
               </KategoryIconContainer>

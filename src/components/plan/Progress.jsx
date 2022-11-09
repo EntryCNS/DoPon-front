@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import styled from "styled-components";
+import { css } from "styled-components/native";
 
 const ProgressView = styled.View`
   position: relative;
@@ -17,7 +18,7 @@ const Recommend = styled.View`
 
   position: absolute;
   top: 0;
-  left: 20%;
+  left: ${({ recommend }) => `${recommend}%`};
 
   display: flex;
   justify-content: center;
@@ -46,20 +47,44 @@ const ProgressMainBack = styled.View`
 
 const ProgressMain = styled.View`
   height: 100%;
-  background: #538ee5;
+  ${({ color }) => colorStyle[color]};
   border-radius: 15px;
 
-  width: 20%;
+  width: ${({ current }) => `${current}%`};
 `;
 
-const Progress = ({ size }) => {
+const colorStyle = {
+  green: css`
+    background-color: #99c298;
+  `,
+  blue: css`
+    background-color: #538ee5;
+  `,
+  red: css`
+    background-color: #f08d8d;
+  `,
+  yellow: css`
+    background-color: #ffdd90;
+  `,
+  sky: css`
+    background-color: #a9bede;
+  `,
+  blue2: css`
+    background-color: #7392cd;
+  `,
+  gray: css`
+    background-color: #cecece;
+  `,
+};
+
+const Progress = ({ size, color, recommend, current }) => {
   return (
     <ProgressView>
-      <Recommend>
+      <Recommend recommend={recommend}>
         <RecommendText>권장</RecommendText>
       </Recommend>
       <ProgressMainBack size={size}>
-        <ProgressMain></ProgressMain>
+        <ProgressMain color={color} current={current}></ProgressMain>
       </ProgressMainBack>
     </ProgressView>
   );
